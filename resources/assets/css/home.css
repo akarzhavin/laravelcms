@@ -1,0 +1,568 @@
+a{
+    color: #1a1a18;
+}
+
+body {
+    background: #f2f2f2;
+    font-family: 'Noto Serif', serif;
+    font-size: 16px;
+}
+
+.hidden{
+    opacity:0;
+    display: block !important;
+}
+
+.visible{
+    opacity:1;
+}
+
+a.ref-topmenu{
+    position: absolute;
+    top: -70px;
+}
+/*Блок 1 Верхнее меню*/
+
+.logo {
+    position: absolute;
+    margin-top: 10px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.navbar{
+    min-height: 90px;
+    margin-bottom: 0;
+    background: #f2f2f2;
+}
+
+.navbar-nav {
+    float: none;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.navbar-default .navbar-nav > li > a{
+    color: #1a1a18;
+    padding: 15px 10px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+    color: #80ab7b;
+    text-decoration: underline;
+
+}
+
+@media screen and (min-width: 750px) and (max-width: 970px){
+    .navbar-nav {
+        text-align: right;
+    }
+}
+
+.navbar-nav li {
+    float: none;
+    display: inline-block;
+}
+
+@media screen and (max-width: 767px){
+    .navbar-nav li {
+        float: none;
+        display: block;
+    }
+}
+
+.navbar-toggle{
+    margin-top: 20px;
+}
+
+/*Блок 3 Примеры обуви*/
+
+#temp-block-3 {
+    margin-top: 30px;
+}
+
+#temp-block-3 .content{
+    text-align: center;
+}
+
+#temp-block-3 .content .block-list{
+    width: 100%;
+    margin: auto;
+}
+
+#temp-block-3 .content .block-list ul{
+    padding: 0;
+    list-style-type: none;
+}
+
+#temp-block-3 .block-list .img {
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 120px;
+    padding: 0;
+    background-position: center;
+}
+
+#temp-block-3 .block-list .block-1 .img{
+    background-image: url("../img/br/br-denvis.png");
+}
+#temp-block-3 .block-list .block-1:hover .img{
+    background-image: url("../img/br/br-denvis-hov.png");
+}
+
+#temp-block-3 .block-list .block-2 .img{
+    background-image: url("../img/br/br-spotter.png");
+}
+#temp-block-3 .block-list .block-2:hover .img{
+    background-image: url("../img/br/br-spotter-hov.png");
+}
+
+#temp-block-3 .block-list .block-3 .img{
+    background-image: url("../img/br/br-denvis.png");
+}
+#temp-block-3 .block-list .block-3:hover .img{
+    background-image: url("../img/br/br-denvis-hov.png");
+}
+
+#temp-block-3 .block-list .block-4 .img{
+    background-image: url("../img/br/br-verdimar.png");
+}
+#temp-block-3 .block-list .block-4:hover .img{
+    background-image: url("../img/br/br-verdimar-hov.png");
+}
+
+#temp-block-3 .block-list .block-5 .img{
+    background-image: url("../img/br/br-denvis.png");
+}
+#temp-block-3 .block-list .block-5:hover .img{
+    background-image: url("../img/br/br-denvis-hov.png");
+}
+
+#temp-block-3 .block-list .img{
+    background-size: contain;
+}
+
+.catalog-button-margin {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.catalog-button {
+    color: #e2e7e2;
+    display: inline-block;
+    padding: 20px 60px 16px;
+    font-size: 22px;
+    background: #4a8f41;
+    border-bottom: 4px solid #3b8032;
+    letter-spacing: 3.19px;
+    transition-duration: 0.3s;
+}
+
+.catalog-button:hover {
+    color: #4a8f41;
+    background: #e2e7e2;
+    text-decoration: none;
+    transition-duration: 0.3s;
+}
+
+
+#temp-block-3 .block-list ul li div {
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+@media screen and (min-width: 1200px){
+    #temp-block-3 .block-list .block-shell{
+        min-width: 282px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px){
+    #temp-block-3 .block-list .block-shell{
+        max-height: 220px;
+    }
+}
+
+/*Блок 4 Denvis описание*/
+
+#temp-block-4 {
+    background: url("../img/section/bg-section-4.png") no-repeat;
+    color: #f2f2f2;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+#temp-block-4 h1{
+    margin-top: 20px;
+    padding-left: 30px;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+#temp-block-4  .description-Denvis{
+    background: rgba(39,36,32,.6);
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 30px;
+    font-size: 20px;
+}
+
+@media (max-width: 767px){
+    #temp-block-4 h1{
+        margin-top: 50px;
+        padding-left: 10px;
+        font-size: 36px;
+        font-weight: bold;
+    }
+    #temp-block-4  .description-Denvis{
+        margin-top: 40px;
+        margin-bottom: 120px;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/*Блок 5 Блок с фото*/
+
+#temp-block-5 {
+    margin-top: 60px;
+}
+
+#temp-block-5 .photo-1 {
+    background: url(../img/blockshoes4.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 400px;
+}
+
+#temp-block-5 .photo-2 {
+    background: url(../img/blockshoes10.jpg) no-repeat;
+    background-size: cover;
+    height: 185px;
+    margin-bottom: 30px;
+}
+
+#temp-block-5 .photo-3 {
+    background: url(../img/blockshoes1.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 185px;
+}
+
+@media (max-width: 767px){
+    #temp-block-5 .photo-1, #temp-block-5 .photo-2, #temp-block-5 .photo-3{
+        height: 50vw;
+    }
+
+    #temp-block-5 .photo-2 {
+        margin-top: 30px;
+    }
+}
+
+
+
+#temp-block-9 .content, #temp-block-6 .content{
+    text-align: center;
+    margin: 60px 0;
+}
+#temp-block-6 .content h1{
+    font-size: 1.1rem;
+    line-height: 1.429;
+    margin-bottom: 60px;
+}
+#temp-block-9 .content .block-list, #temp-block-6 .content .block-list{
+    width: 100%;
+    margin: auto;
+}
+#temp-block-9 .content .block-list ul, #temp-block-6 .content .block-list ul{
+    padding: 0;
+    list-style-type: none;
+}
+#temp-block-9 .content .block-list ul .block-shell, #temp-block-6 .content .block-list ul .block-shell{
+    height: 282px;
+    padding: 15px;
+}
+#temp-block-9 .content .block-list ul .block-shell .block, #temp-block-6 .content .block-list ul .block-shell .block{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+#temp-block-9 .content .block-list ul .block-shell .block .inside, #temp-block-6 .content .block-list ul .block-shell .block .inside{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 1rem;
+    margin: auto;
+    padding: 0 30px;
+}
+#temp-block-9 .content .block-list ul .block-shell .block .icon, #temp-block-6 .content .block-list ul .block-shell .block .icon{
+    top: -40px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin: auto;
+}
+@media screen and (min-width: 1200px){
+    #temp-block-9 .block-list .block-shell, #temp-block-6 .block-list .block-shell{
+        min-width: 282px;
+    }
+}
+@media screen and (min-width: 992px) and (max-width: 1200px){
+    #temp-block-9 .block-list .block-shell, #temp-block-6 .block-list .block-shell{
+        max-height: 220px;
+    }
+}
+
+/*start carousel*/
+
+.carousel{
+    margin-top: 90px;
+    height: 40vh;
+}
+
+.carousel-inner{
+    height: 40vh
+}
+
+
+/*end carousel*/
+
+#temp-block-2{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+#temp-block-2 h1{
+    text-align: center;
+    font-weight: 600;
+    color: #1a1a18;
+    width: 100%;
+}
+#temp-block-6 .content h1 {
+    color: rgb(60, 55, 57);
+}
+#temp-block-6 .content .block-list .block {
+    border: 1px solid rgb(60, 55, 57);
+}
+#temp-block-6 .icon1{
+    background-image: url("../img/icon/icon-sec-6-1.png");
+}
+#temp-block-6 .icon2{
+    background-image: url("../img/icon/icon-sec-6-2.png");
+}
+#temp-block-6 .icon3{
+    background-image: url("../img/icon/icon-sec-6-3.png");
+}
+#temp-block-6 .icon4{
+    background-image: url("../img/icon/icon-sec-6-4.png");
+}
+
+#temp-block-6 .icon{
+    width: 116px;
+    height: 86px;
+}
+
+#temp-block-7{
+    background: url("../img/section/bg-section-7.png");
+    background-position: center;
+    background-size: cover;
+    color: #f2f2f2;
+}
+#temp-block-7 .module{
+    margin: 60px 0;
+}
+#temp-block-7 .content h2{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+#temp-block-7 .image{
+    background-position: center center;
+    border-radius: 100%;
+    background-size: cover;
+    height: 270px;
+    width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+#temp-block-7 .comment{
+    padding: 32px 7px 0;
+    position: relative;
+}
+#temp-block-7 .comment .text{
+    color: white;
+    position: relative;
+    line-height: 1.7;
+}
+#temp-block-7 .comment .quote1, #temp-block-7 .comment .quote2{
+    width: 45px;
+    height: 32px;
+}
+#temp-block-7 .comment .quote1{
+    background-image: url(../img/quotes1.png);
+    float: left;
+    margin-right: 10px;
+    margin-top: -15px;
+}
+#temp-block-7 .comment .quote2{
+    background-image: url(../img/quotes2.png);
+    float: right;
+    margin-top: 10px;
+}
+#temp-block-7 .flexslider{
+    margin: 0;
+    background-color: transparent;
+    border: 0;
+    border-radius: 0;
+    -o-box-shadow: none;
+    box-shadow: none;
+}
+#temp-block-7 .flex-control-paging li a:hover {
+    background: #333;
+    background: rgba(0, 0, 0, 0.7);
+}
+#temp-block-7 .flex-control-paging li a.flex-active {
+    background: #f2f2f2;
+    cursor: default;
+}
+#temp-block-7 .image-1{
+    background-image: url("../img/galygin01.jpg");
+}
+#temp-block-7 .image-2{
+    background-image: url("../img/mirn.jpg");
+}
+#temp-block-7 .image-3{
+    background-image: url("../img/mihalok.jpg");
+}
+#temp-block-8{
+    position: relative;
+}
+#temp-block-8 #map{
+    height: 400px;
+    width: 100%;
+}
+#temp-block-9{
+    color: #1a1a18;
+}
+#temp-block-9 h1{
+    font-size: 30px;
+    letter-spacing: 1.5px;
+    margin-bottom: 80px;
+}
+#temp-block-9 .icon1{
+    background-image: url("../img/icon/icon-sec-9-1.png");
+}
+#temp-block-9 .icon2{
+    background-image: url("../img/icon/icon-sec-9-2.png");
+}
+#temp-block-9 .icon3{
+    background-image: url("../img/icon/icon-sec-9-3.png");
+}
+#temp-block-9 .icon4{
+    background-image: url("../img/icon/icon-sec-9-4.png");
+}
+#temp-block-9 .icon{
+    height: 86px;
+    width: 116px;
+}
+#temp-block-9 .content .block-list .block {
+    border: 1px solid #1a1a18;
+}
+#temp-block-9 .content .inside {
+    font-size: 16px;
+}
+#temp-block-10 {
+    background-image: url(../img/blockshoes9.jpg);
+    background-size: cover;
+    height: 565px;
+    background-attachment:fixed;
+}
+#temp-block-11 .content{
+    margin: 60px 0;
+    text-align: center;
+}
+#temp-block-11 h1{
+    font-size: 30px;
+    letter-spacing: 1.5px;
+    margin-bottom: 50px;
+}
+#temp-block-11 .content .form{
+    margin: auto;
+    padding: 0 7px;
+}
+#temp-block-11 ul{
+    padding: 0;
+    list-style-type: none;
+}
+#temp-block-11 ul li{
+    padding-bottom: 30px;
+}
+#temp-block-11 ul li input{
+    background: #f2f2f2;
+    color: #CEC5C0;
+    width: 100%;
+    height: 65px;
+    border: 1px solid #494848;
+    color: #999898;
+    font-size: 20px;
+    line-height: 1.429;
+}
+#temp-block-11 ul li button{
+    color: #e2e7e2;
+    display: inline-block;
+    padding: 20px 60px 16px;
+    font-size: 22px;
+    background: #4a8f41;
+    border: none;
+    border-bottom: 4px solid #3b8032;
+    letter-spacing: 3.19px;
+}
+#temp-block-11 ul li button:hover {
+    transition-duration: 0.3s;
+    color: #4a8f41;
+    background: #e2e7e2;
+}
+#temp-block-11 ul li input{
+    padding: 15px;
+}
+#temp-block-11 ul li input:focus, #temp-block-11 ul li button:focus {
+    outline: none;
+}
+#temp-block-12{
+    color: #f2f2f2;
+    background-image: url(../img/section/bg-section-12.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+#temp-block-12 h1{
+    font-size: 30px;
+    letter-spacing: 1.5px;
+    margin-top: 45px;
+    text-align: center;
+}
+#temp-block-12 .text {
+    font-size: 22px;
+}
+#temp-block-12 .module{
+    margin: 50px 0;
+}
+#temp-block-13{
+    background-color: #1a1a18;
+    color: #f2f2f2;
+    text-align: center;
+    font-size: 18px;
+}
+#temp-block-13 .content{
+    padding: 20px 7px;
+}
+#temp-block-13 .content .text{}
+#temp-block-13 .content .social{}
