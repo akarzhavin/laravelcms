@@ -73,7 +73,7 @@
     }
     .ui-btn-save{
         float: right;
-      }
+    }
     .ui-btn-delete{
         float: right;
         margin-left: 10px;
@@ -81,6 +81,26 @@
     }
     .btn-img-product-form{
         margin-left: 5px;
+    }
+
+    /* Producat_form  */
+
+    /*add imgInput*/
+    .img-product-form{
+        position: relative;
+    }
+    .img-product-form img{
+        width: 100px;
+        height: 100px;
+    }
+    .img-input{
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        opacity: 0;
     }
 
 </style>

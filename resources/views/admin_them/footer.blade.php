@@ -6,17 +6,14 @@
 <script src="/js/app.js"></script>
 
 <script>
-    //Кнопка добавления нового поля для загрузки картинок Products
     function addNewImg () {
-        var key = $('.imgKey').length;
-        $('.imgKey').last().after('<div class="form-group form-row align-items-center imgKey"><input name="images_main" value="' + key + '" type="radio"><label for="images[' + key + '][file]" class="col-md-1 col-xs-2">New image</label> <label class="custom-file"><input id="" name="images[' + key + '][file]" class="custom-file-input" onclick="nameImgProduct()" type="file"> <span class="custom-file-control"></span></label> <label for="images[' + key + '][order]">Order</label> <input name="images[' + key + '][order]" value="0" id="images[' + key + '][order]" class="form-control col-md-2 col-xs-3" type="number"> <img src="" alt="placeholder"></div>');
+        var key = $('.table-striped tr').length;
+        $('.table-striped tr').eq(-2).after('<tr><th><input checked="checked" name="images_main" value="0" type="radio"></th> <td><div class="img-product-form"><img class="placeholder" src="" alt=""> <input id="" name="images[' + key + '][file]" class="img-input" type="file"></div></td> <td><input name="images[' + key + '][order]" value="0" class="form-control" type="number"></td> <td><button type="button" onclick="$(this).parent(".form-group").remove();" class="btn btn-danger btn-img-product-form"><i aria-hidden="true" class="fa fa-minus-circle"></i></button></td></tr>');
     }
-    //Добавляет путь картинки к input в Products
-    function nameImgProduct() {
-        $('.custom-file-input').on('change', function () {
-            $(this).next('.custom-file-control').addClass("selected").html($(this).val());
-        })
-    }
+    //Products изменение картинки ajax
+    $("table").delegate(".img-input", "change", function (event) {
+        $(this).siblings('.placeholder').attr('src', URL.createObjectURL(event.target.files[0]));
+    });
 
     //Features оключение полей при определённом включенном поле (тест)
     $("#awesome").change(function() {
@@ -30,8 +27,8 @@
     //Features добавление полей вариантов
     function addNewVariable () {
         var key = $('.quantityVariable').length;
-        $('.quantityVariableTr').last().after('<tr class="quantityVariableTr"><td><input name="values[' + key +'][value]" value="" class="form-control quantityVariable" type="text"></td></tr>');
-    }
+        $('.quantityVariableTr').last().after('<tr class="quantityVariableTr"><td><input name="values[' + key + '][value]" value="" class="form-control quantityVariable" type="text"></td></tr>');
+    };
 </script>
 
 </body>

@@ -8,6 +8,12 @@
     <li class="nav-item">
         <a class="nav-link" id="characteristics-tab" data-toggle="tab" href="#characteristics" role="tab" aria-controls="characteristics" aria-expanded="true">Характеристики</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" id="options-tab" data-toggle="tab" href="#options" role="tab" aria-controls="options" aria-expanded="true">Параметры</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="cost-tab" data-toggle="tab" href="#cost" role="tab" aria-controls="cost" aria-expanded="true">Цены</a>
+    </li>
 </ul>
 <div class="tab-content" id="productsAddTabsContent">
     <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
@@ -37,14 +43,16 @@
             {{ Form::text('description[meta_description]', empty($product->description->meta_description) ?'': $product->description->meta_description, array('class'=>'form-control')) }}
         </div>
         {{--<div class="form-group">--}}
-            {{--{{ Form::label('description[search_words]','Product search words') }}--}}
-            {{--{{ Form::text('description[search_words]', empty($product->description->search_words) ?'': $product->description->search_words, array('class'=>'form-control')) }}--}}
+        {{--{{ Form::label('description[search_words]','Product search words') }}--}}
+        {{--{{ Form::text('description[search_words]', empty($product->description->search_words) ?'': $product->description->search_words, array('class'=>'form-control')) }}--}}
         {{--</div>--}}
         <h1>Статус</h1>
         <div class="form-group">
-            {{ Form::select('general[status]', ['A' => 'Включено', 'D' => 'Выключено', 'H' => 'Скрыто'], empty($product->status)?'':$product->status, array('class' => 'form-control' ))}}
+            {{ Form::select('properties[status]', ['A' => 'Включено', 'D' => 'Выключено', 'H' => 'Скрыто'], empty($product->status)?'':$product->status, array('class' => 'form-control' ))}}
         </div>
+    </div>
 
+    <div class="tab-pane fade" id="categories" role="tabpanel" aria-labelledby="categories-tab">
         <h1>Категории</h1>
 
         <div class="form-group">
@@ -68,59 +76,107 @@
                 ))
             </select>
         </div>
-
-        <h1>Цена</h1>
-        <div class="form-group">
-            {{ Form::label('prices[guest][price]','Цена') }}
-            {{ Form::number('prices[guest][price]', empty($price->price) ?'': $price->price, array('class'=>'form-control') ) }}
-        </div>
-
     </div>
 
     <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
         <h1>Изображения</h1>
-        @if(!empty($images))
-            @foreach($images as $key => $image)
 
-                <div class="form-group form-row align-items-center imgKey">
-                    {{ Form::radio('images_main', $key, $image['pivot']['main']) }}
-                    {{ Form::label('images['. $key .'][file]', $image['name'], array('class' => 'col-md-1 col-xs-2')) }}
-                    {{--{{ Form::file('images['. $key .'][file]', array('id'=>'')) }}--}}
-                    <label class="custom-file">
-                        {{ Form::file('images['. $key .'][file]', array('id'=>'', 'class' => 'custom-file-input', 'onclick' => 'nameImgProduct()')) }}
-                        <span class="custom-file-control"></span>
-                    </label>
-                    {{ Form::label('images['. $key .'][order]','Order') }}
-                    {{ Form::number('images['. $key .'][order]', (empty($image['pivot']['order']) ? 0 : $image['pivot']['order']), array('class' => 'form-control col-md-2 col-xs-3') ) }}
-                    {{ Form::hidden('images['. $key .'][id]', $image['id'] ) }}
-                    <img src="{{ $image['thumbnail'] }}" alt="{{ $image['alt'] }}" class="col-md-1 col-xs-2">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Image</th>
+                <th>Order</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
 
-                    <button class="btn btn-danger btn-img-product-form" type="button" onclick="$(this).parent('.form-group').remove();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+            @if(!empty($images))
+                @foreach($images as $key => $image)
+                    <tr>
+                        {{--<div class="form-group form-row align-items-center imgKey">--}}
+                        <th>
+                            {{ Form::radio('images_main', $key, $image['pivot']['main']) }}
+                        </th>
 
-                </div>
-            @endforeach
-        @endif
+                        {{--{{ Form::label('images['. $key .'][file]', $image['name'], array('class' => 'col-md-1 col-xs-2')) }}--}}
+                        {{--{{ Form::file('images['. $key .'][file]', array('id'=>'')) }}--}}
 
-        @php
-            isset($key) ? $key++ : $key = 0;
-        @endphp
+                        <td>
+                            <div class="img-product-form">
+                                <img class="placeholder" src="{{ $image['thumbnail'] }}" alt="{{ $image['alt'] }}">
+                                {{--<input class="img-input" type="file" onchange="placeHolderImg(event)">--}}
+                                {{--{{ Form::file('images['. $key .'][file]' ,array('id'=>'', 'class' => 'img-input', 'onchange' => 'placeHolderImg(event)')) }}--}}
+                                {{ Form::file('images['. $key .'][file]' ,array('id'=>'', 'class' => 'img-input')) }}
+                            </div>
+                        </td>
 
-        <div class="form-group form-row align-items-center imgKey">
-            {{ Form::radio('images_main', $key) }}
-            {{ Form::label('images['. $key .'][file]', 'New image', array('class' => 'col-md-1 col-xs-2')) }}
-            {{--{{ Form::file('images['. $key .'][file]' ,array('id'=>'')) }}--}}
+                        {{--<label class="custom-file">--}}
+                        {{--{{ Form::file('images['. $key .'][file]', array('id'=>'', 'class' => 'custom-file-input', 'onclick' => 'nameImgProduct()')) }}--}}
+                        {{--<span class="custom-file-control"></span>--}}
+                        {{--</label>--}}
 
-            <label class="custom-file">
-                {{ Form::file('images['. $key .'][file]' ,array('id'=>'', 'class' => 'custom-file-input', 'onclick' => 'nameImgProduct()')) }}
-                <span class="custom-file-control"></span>
-            </label>
+                        {{--{{ Form::label('images['. $key .'][order]','Order') }}--}}
+                        <td>
+                            {{ Form::number('images['. $key .'][order]', (empty($image['pivot']['order']) ? 0 : $image['pivot']['order']), array('class' => 'form-control') ) }}
+                        </td>
+                        {{--{{ Form::hidden('images['. $key .'][id]', $image['id'] ) }}--}}
+                        {{--<img src="{{ $image['thumbnail'] }}" alt="{{ $image['alt'] }}" class="col-md-1 col-xs-2">--}}
 
-            {{ Form::label('images['. $key .'][order]','Order') }}
-            {{ Form::number('images['. $key .'][order]', 0, array('class' => 'form-control col-md-2 col-xs-3')) }}
-            <img src="{{ $placeholder }}" alt="placeholder">
-        </div>
+                        <td>
+                            <button class="btn btn-danger btn-img-product-form" type="button" onclick="$(this).closest('tr').remove();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                        </td>
 
-        <button class="btn btn-primary btn-img-product-form" type="button" onclick="addNewImg()"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                        {{--</div>--}}
+                    </tr>
+                @endforeach
+            @endif
+
+            @php
+                isset($key) ? $key++ : $key = 0;
+            @endphp
+
+            <tr>
+                {{--<div class="form-group form-row align-items-center imgKey">--}}
+                <th>
+                    {{ Form::radio('images_main', $key) }}
+                </th>
+                {{--{{ Form::label('images['. $key .'][file]', 'New image', array('class' => 'col-md-1 col-xs-2')) }}--}}
+                {{--{{ Form::file('images['. $key .'][file]' ,array('id'=>'')) }}--}}
+
+                <td>
+                    <div class="img-product-form">
+                        <img class="placeholder" src="" alt="">
+                        {{--<input class="img-input" type="file" onchange="placeHolderImg(event)">--}}
+                        {{ Form::file('images['. $key .'][file]' ,array('id'=>'', 'class' => 'img-input')) }}
+                    </div>
+                </td>
+
+                {{--<label class="custom-file">--}}
+                {{--{{ Form::file('images['. $key .'][file]' ,array('id'=>'', 'class' => 'custom-file-input', 'onclick' => 'nameImgProduct()')) }}--}}
+                {{--<span class="custom-file-control"></span>--}}
+                {{--</label>--}}
+                <td>
+                    {{--{{ Form::label('images['. $key .'][order]','Order') }}--}}
+                    {{ Form::number('images['. $key .'][order]', 0, array('class' => 'form-control')) }}
+                </td>
+
+                <td>
+                    <button class="btn btn-danger btn-img-product-form" type="button" onclick="$(this).closest('tr').remove();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                </td>
+
+                {{--</div>--}}
+            </tr>
+
+            <tr>
+                <td>
+                    <button class="btn btn-primary btn-img-product-form" type="button" onclick="addNewImg()"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
 
     </div>
 
@@ -139,6 +195,72 @@
 
             @endforeach
         @endif
+
+    </div>
+
+    <div class="tab-pane fade" id="options" role="tabpanel" aria-labelledby="options-tab">
+        <h1>Параметры</h1>
+        <div class="form-group">
+            {{ Form::label('properties[product_code]','Артикул') }}
+            {{ Form::text('properties[product_code]', empty($product->product_code) ?'': $product->product_code, array('class'=>'form-control')) }}
+        </div>
+        <div class="form-group">
+            {{ Form::label('properties[amount]','Amount') }}
+            {{ Form::number('properties[amount]', empty($product->amount) ?'': $product->amount, array('class'=>'form-control') )}}
+        </div>
+        <div class="form-group">
+            {{ Form::label('properties[weight]','Weight') }}
+            {{ Form::number('properties[weight]', empty($product->weight) ?'': $product->weight, array('class'=>'form-control') )}}
+        </div>
+        <div class="form-group">
+            {{ Form::label('properties[length]','Length') }}
+            {{ Form::number('properties[length]', empty($product->length) ?'': $product->length, array('class'=>'form-control') )}}
+        </div>
+        <div class="form-group">
+            {{ Form::label('properties[width]','Width') }}
+            {{ Form::number('properties[width]', empty($product->width) ?'': $product->width, array('class'=>'form-control') )}}
+        </div>
+        <div class="form-group">
+            {{ Form::label('properties[height]','Height') }}
+            {{ Form::number('properties[height]', empty($product->height) ?'': $product->height, array('class'=>'form-control') )}}
+            {{--<br>--}}
+            {{--{{ Form::label('properties[shipping_freight]','Shipping freight') }}--}}
+            {{--{{ Form::number('properties[shipping_freight]', $product->shipping_freight) }}--}}
+
+            {{--<br>--}}
+            {{--{{ Form::label('properties[is_edp]','Is edp') }}--}}
+            {{--{{ Form::radioChar('properties[is_edp]', ['Y', 'N'], $product->is_edp) }}--}}
+
+        </div>
+        <div class="form-group">
+            {{ Form::label('properties[min_qty]','Min qty') }}
+            {{ Form::number('properties[min_qty]', empty($product->min_qty) ?'': $product->min_qty, array('class'=>'form-control') )}}
+        </div>
+        <div class="form-group">
+            {{ Form::label('properties[max_qty]','Max qty') }}
+            {{ Form::number('properties[max_qty]', empty($product->max_qty) ?'': $product->max_qty, array('class'=>'form-control') )}}
+        </div>
+        <div class="form-group">
+            {{ Form::label('properties[qty_step]','Qty step') }}
+            {{ Form::number('properties[qty_step]', empty($product->qty_step) ?'': $product->qty_step, array('class'=>'form-control') )}}
+        </div>
+        <div class="form-group">
+            {{ Form::label('properties[list_qty_count]','List qty count') }}
+            {{ Form::number('properties[list_qty_count]', empty($product->list_qty_count) ?'': $product->list_qty_count, array('class'=>'form-control') )}}
+            {{--<br>--}}
+            {{--{{ Form::label('properties[shipping_params]','shipping params') }}--}}
+            {{--{{ Form::number('properties[shipping_params]', $product->shipping_params) }}--}}
+        </div>
+
+    </div>
+
+    <div class="tab-pane fade" id="cost" role="tabpanel" aria-labelledby="cost-tab">
+
+        <h1>Цены</h1>
+        <div class="form-group">
+            {{ Form::label('prices[guest][price]','Цена') }}
+            {{ Form::number('prices[guest][price]', empty($price->price) ?'': $price->price, array('class'=>'form-control') ) }}
+        </div>
 
     </div>
 
