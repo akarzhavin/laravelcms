@@ -120,7 +120,7 @@
                         <td>
                             {{ Form::number('images['. $key .'][order]', (empty($image['pivot']['order']) ? 0 : $image['pivot']['order']), array('class' => 'form-control') ) }}
                         </td>
-                        {{--{{ Form::hidden('images['. $key .'][id]', $image['id'] ) }}--}}
+                        {{ Form::hidden('images['. $key .'][id]', $image['id'] ) }}
                         {{--<img src="{{ $image['thumbnail'] }}" alt="{{ $image['alt'] }}" class="col-md-1 col-xs-2">--}}
 
                         <td>
