@@ -90,8 +90,8 @@
         position: relative;
     }
     .img-product-form img{
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
         object-fit: cover;
     }
     .img-input{
@@ -99,8 +99,8 @@
         cursor: pointer;
         top: 0;
         left: 0;
-        width: 150px;
-        height: 150px;
+        width: 100px;
+        height: 100px;
         opacity: 0;
     }
 

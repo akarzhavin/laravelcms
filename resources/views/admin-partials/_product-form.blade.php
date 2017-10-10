@@ -83,7 +83,7 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>#</th>
+                <th></th>
                 <th>Image</th>
                 <th>Order</th>
                 <th></th>
@@ -94,41 +94,30 @@
             @if(!empty($images))
                 @foreach($images as $key => $image)
                     <tr>
-                        {{--<div class="form-group form-row align-items-center imgKey">--}}
                         <th>
-                            {{ Form::radio('images_main', $key, $image['pivot']['main']) }}
+                            <label class="custom-control custom-radio">
+                                {{ Form::radio('images_main', $key, $image['pivot']['main'], array('class' => 'custom-control-input')) }}
+                                <span class="custom-control-indicator"></span>
+                            </label>
                         </th>
-
-                        {{--{{ Form::label('images['. $key .'][file]', $image['name'], array('class' => 'col-md-1 col-xs-2')) }}--}}
-                        {{--{{ Form::file('images['. $key .'][file]', array('id'=>'')) }}--}}
 
                         <td>
                             <div class="img-product-form">
                                 <img class="placeholder" src="{{ $image['thumbnail'] }}" alt="{{ $image['alt'] }}">
-                                {{--<input class="img-input" type="file" onchange="placeHolderImg(event)">--}}
-                                {{--{{ Form::file('images['. $key .'][file]' ,array('id'=>'', 'class' => 'img-input', 'onchange' => 'placeHolderImg(event)')) }}--}}
-                                {{ Form::file('images['. $key .'][file]' ,array('id'=>'', 'class' => 'img-input')) }}
+                                {{ Form::file('images['. $key .'][file]' ,array('id' => '', 'class' => 'img-input')) }}
                             </div>
                         </td>
 
-                        {{--<label class="custom-file">--}}
-                        {{--{{ Form::file('images['. $key .'][file]', array('id'=>'', 'class' => 'custom-file-input', 'onclick' => 'nameImgProduct()')) }}--}}
-                        {{--<span class="custom-file-control"></span>--}}
-                        {{--</label>--}}
-
-                        {{--{{ Form::label('images['. $key .'][order]','Order') }}--}}
                         <td>
                             {{ Form::number('images['. $key .'][order]', (empty($image['pivot']['order']) ? 0 : $image['pivot']['order']), array('class' => 'form-control') ) }}
                         </td>
                         {{ Form::hidden('images['. $key .'][id]', $image['id'] ) }}
-                        {{--<img src="{{ $image['thumbnail'] }}" alt="{{ $image['alt'] }}" class="col-md-1 col-xs-2">--}}
 
                         <td>
                             <button class="btn btn-danger btn-img-product-form" type="button" onclick="$(this).closest('tr').remove();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
                         </td>
-
-                        {{--</div>--}}
                     </tr>
+
                 @endforeach
             @endif
 
@@ -137,27 +126,21 @@
             @endphp
 
             <tr>
-                {{--<div class="form-group form-row align-items-center imgKey">--}}
                 <th>
-                    {{ Form::radio('images_main', $key) }}
+                    <label class="custom-control custom-radio">
+                        {{ Form::radio('images_main', $key , '', ['class' => 'custom-control-input']) }}
+                        <span class="custom-control-indicator"></span>
+                    </label>
                 </th>
-                {{--{{ Form::label('images['. $key .'][file]', 'New image', array('class' => 'col-md-1 col-xs-2')) }}--}}
-                {{--{{ Form::file('images['. $key .'][file]' ,array('id'=>'')) }}--}}
 
                 <td>
                     <div class="img-product-form">
                         <img class="placeholder" src="/img/admin/add-image.png" alt="">
-                        {{--<input class="img-input" type="file" onchange="placeHolderImg(event)">--}}
-                        {{ Form::file('images['. $key .'][file]' ,array('id'=>'', 'class' => 'img-input')) }}
+                        {{ Form::file('images['. $key .'][file]' , array('id'=>'', 'class' => 'img-input')) }}
                     </div>
                 </td>
 
-                {{--<label class="custom-file">--}}
-                {{--{{ Form::file('images['. $key .'][file]' ,array('id'=>'', 'class' => 'custom-file-input', 'onclick' => 'nameImgProduct()')) }}--}}
-                {{--<span class="custom-file-control"></span>--}}
-                {{--</label>--}}
                 <td>
-                    {{--{{ Form::label('images['. $key .'][order]','Order') }}--}}
                     {{ Form::number('images['. $key .'][order]', 0, array('class' => 'form-control')) }}
                 </td>
 
@@ -165,7 +148,6 @@
                     <button class="btn btn-danger btn-img-product-form" type="button" onclick="$(this).closest('tr').remove();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
                 </td>
 
-                {{--</div>--}}
             </tr>
 
             <tr>

@@ -8,7 +8,7 @@
 <script>
     function addNewImg () {
         var key = $('.table-striped tr').length;
-        $('.table-striped tr').eq(-2).after('<tr><th><input checked="checked" name="images_main" value="0" type="radio"></th> <td><div class="img-product-form"><img class="placeholder" src="/img/admin/add-image.png" alt=""> <input id="" name="images[' + key + '][file]" class="img-input" type="file"></div></td> <td><input name="images[' + key + '][order]" value="0" class="form-control" type="number"></td> <td><button type="button" onclick="$(this).parent(".form-group").remove();" class="btn btn-danger btn-img-product-form"><i aria-hidden="true" class="fa fa-minus-circle"></i></button></td></tr>');
+        $('.table-striped tr').eq(-2).after('<tr><th><label class="custom-control custom-radio"><input checked="checked" name="images_main" value="0" type="radio" class="custom-control-input"><span class="custom-control-indicator"></span></label></th> <td><div class="img-product-form"><img class="placeholder" src="/img/admin/add-image.png" alt=""> <input id="" name="images[' + key + '][file]" class="img-input" type="file"></div></td> <td><input name="images[' + key + '][order]" value="0" class="form-control" type="number"></td> <td><button type="button" onclick="$(this).parent(".form-group").remove();" class="btn btn-danger btn-img-product-form"><i aria-hidden="true" class="fa fa-minus-circle"></i></button></td></tr>');
     }
     //Products изменение картинки ajax
     $("table").delegate(".img-input", "change", function (event) {
