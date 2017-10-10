@@ -8,12 +8,6 @@
     <li class="nav-item">
         <a class="nav-link" id="characteristics-tab" data-toggle="tab" href="#characteristics" role="tab" aria-controls="characteristics" aria-expanded="true">Характеристики</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" id="options-tab" data-toggle="tab" href="#options" role="tab" aria-controls="options" aria-expanded="true">Параметры</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" id="cost-tab" data-toggle="tab" href="#cost" role="tab" aria-controls="cost" aria-expanded="true">Цены</a>
-    </li>
 </ul>
 <div class="tab-content" id="productsAddTabsContent">
     <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
@@ -50,9 +44,7 @@
         <div class="form-group">
             {{ Form::select('properties[status]', ['A' => 'Включено', 'D' => 'Выключено', 'H' => 'Скрыто'], empty($product->status)?'':$product->status, array('class' => 'form-control' ))}}
         </div>
-    </div>
 
-    <div class="tab-pane fade" id="categories" role="tabpanel" aria-labelledby="categories-tab">
         <h1>Категории</h1>
 
         <div class="form-group">
@@ -76,6 +68,13 @@
                 ))
             </select>
         </div>
+
+        <h1>Цены</h1>
+        <div class="form-group">
+            {{ Form::label('prices[guest][price]','Цена') }}
+            {{ Form::number('prices[guest][price]', empty($price->price) ?'': $price->price, array('class'=>'form-control') ) }}
+        </div>
+
     </div>
 
     <div class="tab-pane fade" id="images" role="tabpanel" aria-labelledby="images-tab">
@@ -147,7 +146,7 @@
 
                 <td>
                     <div class="img-product-form">
-                        <img class="placeholder" src="" alt="">
+                        <img class="placeholder" src="/img/admin/add-image.png" alt="">
                         {{--<input class="img-input" type="file" onchange="placeHolderImg(event)">--}}
                         {{ Form::file('images['. $key .'][file]' ,array('id'=>'', 'class' => 'img-input')) }}
                     </div>
@@ -195,72 +194,6 @@
 
             @endforeach
         @endif
-
-    </div>
-
-    <div class="tab-pane fade" id="options" role="tabpanel" aria-labelledby="options-tab">
-        <h1>Параметры</h1>
-        <div class="form-group">
-            {{ Form::label('properties[product_code]','Артикул') }}
-            {{ Form::text('properties[product_code]', empty($product->product_code) ?'': $product->product_code, array('class'=>'form-control')) }}
-        </div>
-        <div class="form-group">
-            {{ Form::label('properties[amount]','Amount') }}
-            {{ Form::number('properties[amount]', empty($product->amount) ?'': $product->amount, array('class'=>'form-control') )}}
-        </div>
-        <div class="form-group">
-            {{ Form::label('properties[weight]','Weight') }}
-            {{ Form::number('properties[weight]', empty($product->weight) ?'': $product->weight, array('class'=>'form-control') )}}
-        </div>
-        <div class="form-group">
-            {{ Form::label('properties[length]','Length') }}
-            {{ Form::number('properties[length]', empty($product->length) ?'': $product->length, array('class'=>'form-control') )}}
-        </div>
-        <div class="form-group">
-            {{ Form::label('properties[width]','Width') }}
-            {{ Form::number('properties[width]', empty($product->width) ?'': $product->width, array('class'=>'form-control') )}}
-        </div>
-        <div class="form-group">
-            {{ Form::label('properties[height]','Height') }}
-            {{ Form::number('properties[height]', empty($product->height) ?'': $product->height, array('class'=>'form-control') )}}
-            {{--<br>--}}
-            {{--{{ Form::label('properties[shipping_freight]','Shipping freight') }}--}}
-            {{--{{ Form::number('properties[shipping_freight]', $product->shipping_freight) }}--}}
-
-            {{--<br>--}}
-            {{--{{ Form::label('properties[is_edp]','Is edp') }}--}}
-            {{--{{ Form::radioChar('properties[is_edp]', ['Y', 'N'], $product->is_edp) }}--}}
-
-        </div>
-        <div class="form-group">
-            {{ Form::label('properties[min_qty]','Min qty') }}
-            {{ Form::number('properties[min_qty]', empty($product->min_qty) ?'': $product->min_qty, array('class'=>'form-control') )}}
-        </div>
-        <div class="form-group">
-            {{ Form::label('properties[max_qty]','Max qty') }}
-            {{ Form::number('properties[max_qty]', empty($product->max_qty) ?'': $product->max_qty, array('class'=>'form-control') )}}
-        </div>
-        <div class="form-group">
-            {{ Form::label('properties[qty_step]','Qty step') }}
-            {{ Form::number('properties[qty_step]', empty($product->qty_step) ?'': $product->qty_step, array('class'=>'form-control') )}}
-        </div>
-        <div class="form-group">
-            {{ Form::label('properties[list_qty_count]','List qty count') }}
-            {{ Form::number('properties[list_qty_count]', empty($product->list_qty_count) ?'': $product->list_qty_count, array('class'=>'form-control') )}}
-            {{--<br>--}}
-            {{--{{ Form::label('properties[shipping_params]','shipping params') }}--}}
-            {{--{{ Form::number('properties[shipping_params]', $product->shipping_params) }}--}}
-        </div>
-
-    </div>
-
-    <div class="tab-pane fade" id="cost" role="tabpanel" aria-labelledby="cost-tab">
-
-        <h1>Цены</h1>
-        <div class="form-group">
-            {{ Form::label('prices[guest][price]','Цена') }}
-            {{ Form::number('prices[guest][price]', empty($price->price) ?'': $price->price, array('class'=>'form-control') ) }}
-        </div>
 
     </div>
 

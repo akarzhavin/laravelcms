@@ -90,16 +90,17 @@
         position: relative;
     }
     .img-product-form img{
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
     }
     .img-input{
         position: absolute;
         cursor: pointer;
         top: 0;
         left: 0;
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
         opacity: 0;
     }
 
