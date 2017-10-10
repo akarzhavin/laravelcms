@@ -42,7 +42,7 @@
         {{--</div>--}}
         <h1>Статус</h1>
         <div class="form-group">
-            {{ Form::select('properties[status]', ['A' => 'Включено', 'D' => 'Выключено', 'H' => 'Скрыто'], empty($product->status)?'':$product->status, array('class' => 'form-control' ))}}
+            {{ Form::select('general[status]', ['A' => 'Включено', 'D' => 'Выключено', 'H' => 'Скрыто'], empty($product->status)?'':$product->status, array('class' => 'form-control' ))}}
         </div>
 
         <h1>Категории</h1>
