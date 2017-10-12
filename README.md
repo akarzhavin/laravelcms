@@ -8,7 +8,6 @@ Run the following commands:
 
 ```
 composer install
-npm install
 php artisan key:generate
 php artisan migrate
 php artisan db:seed

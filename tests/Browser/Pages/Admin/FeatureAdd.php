@@ -36,7 +36,17 @@ class FeatureAdd extends BasePage
     public function elements()
     {
         return [
-            '@element' => '#selector',
+            '@title' => 'description[title]',
+            '@description' => 'description[description]',
+            '@type' => 'properties[type]',
+            '@status' => 'properties[status]',
+            '@prefix' => 'description[prefix]',
+            '@suffix' => 'description[suffix]',
+            '@categories' => 'categories[]',
+            '@variant' => 'values[0][value]',
+            '@deleteVariant' => '#delete-variant',
+            '@addVariant' => '#add-variant',
+            '@submit' => '#submit',
         ];
     }
 }

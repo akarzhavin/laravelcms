@@ -28,7 +28,7 @@ use View;
 
 class ShopController extends Controller
 {
-    use TelegramTrait;
+//    use TelegramTrait;
 
     /**
      * Homepage.

@@ -11,7 +11,7 @@
                 'action'=> array('FeatureController@destroy', $feature->id),
                 'method'=>"DELETE")
                 ) }}
-                <button class="btn btn-danger ui-btn-delete" type="submit">Удалить</button>
+                <button id="destroy" class="btn btn-danger ui-btn-delete" type="submit">Удалить</button>
             {{ Form::close() }}
 
             {{ Form::model(
@@ -22,7 +22,7 @@
                 'files' => true)
                 ) }}
                 <div class="ui-btn-save-div">
-                    <button class="btn btn-primary ui-btn-save" type="submit">Сохранить</button>
+                    <button id="submit" class="btn btn-primary ui-btn-save" type="submit">Сохранить</button>
                 </div>
 
                 <h4>Редактирование характеристики</h4>

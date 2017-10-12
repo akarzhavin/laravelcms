@@ -71,7 +71,7 @@
             <td>{{ Form::text('values['. $i .'][value]', empty($item->value) ?'': $item->value, array('class' => 'form-control quantityVariable')) }}</td>
             <td>
                 {{ Form::hidden('values['. $i .'][id]', $item->id ) }}
-                <button class="btn btn-danger" type="button" onclick="$(this).closest('tr').remove();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+                <button id="delete-variant" class="btn btn-danger" type="button" onclick="$(this).closest('tr').remove();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
             </td>
         </tr>
     @endforeach
@@ -90,9 +90,8 @@
         </tr>
         <tr>
             <td>
-                <button class="btn btn-primary btn-img-product-form" type="button" onclick="addNewVariable()"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+                <button id="add-variant" class="btn btn-primary btn-img-product-form" type="button" onclick="addNewVariable()"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
             </td>
         </tr>
     </tfoot>
 </table>
-{{--{{Form::submit('Submit', array('class' => 'btn btn-primary'))}}--}}

@@ -167,7 +167,7 @@ return [
         TeamTNT\Scout\TNTSearchScoutServiceProvider::class,
         \Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
         Spatie\Newsletter\NewsletterServiceProvider::class,
-        Telegram\Bot\Laravel\TelegramServiceProvider::class,
+//        Telegram\Bot\Laravel\TelegramServiceProvider::class,
         Folklore\Image\ImageServiceProvider::class,
         \Torann\GeoIP\GeoIPServiceProvider::class,
     ],
@@ -223,7 +223,7 @@ return [
         'Currency'   => Torann\Currency\Facades\Currency::class,
         'Recaptcha'  => Greggilbert\Recaptcha\Facades\Recaptcha::class,
         'Socialite'  => Laravel\Socialite\Facades\Socialite::class,
-        'Telegram'   => Telegram\Bot\Laravel\Facades\Telegram::class,
+//        'Telegram'   => Telegram\Bot\Laravel\Facades\Telegram::class,
         'GeoIP'      => \Torann\GeoIP\Facades\GeoIP::class,
         'Images'     => App\Facades\Images::class
     ],
