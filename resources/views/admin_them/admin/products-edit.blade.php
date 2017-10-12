@@ -13,7 +13,7 @@
                 'action'=> array('ProductController@destroy', $product->id),
                 'method'=>"DELETE")
                 ) }}
-                {{--<button class="btn btn-danger ui-btn-delete" type="submit">Удалить</button>--}}
+                <button class="btn btn-danger ui-btn-delete" type="submit">Удалить</button>
             {{ Form::close() }}
 
             {{ Form::model(

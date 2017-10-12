@@ -41,6 +41,7 @@ class ProductAdd extends BasePage
             '@cost_tab_btn' => 'a[aria-controls=cost]',
 
             '@general' => '#general.tab-pane',
+                '@status' => 'select[name="general[status]"]',
                 '@title' => 'input[name="description[title]"]',
                 '@short_title' => 'input[name="description[short_title]"]',
                 '@short_description' => 'textarea[name="description[short_description]"]',
@@ -55,6 +56,7 @@ class ProductAdd extends BasePage
                 '@order' => 'input[name="images[0][order]"]',
                 '@delete' => 'button#delete',
                 '@main' => 'input[name="images_main"]',
+
             '@submit' => '.btn-primary.ui-btn-save'
         ];
     }

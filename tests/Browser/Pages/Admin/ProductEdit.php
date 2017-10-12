@@ -49,7 +49,6 @@ class ProductEdit extends BasePage
             '@cost_tab_btn' => 'a[aria-controls=cost]',
 
             '@general' => '#general.tab-pane',
-                '@product_code' => 'input[name="general[product_code]"]',
                 '@status' => 'select[name="general[status]"]',
                 '@title' => 'input[name="description[title]"]',
                 '@short_title' => 'input[name="description[short_title]"]',

@@ -83,8 +83,9 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th></th>
+                <th>#</th>
                 <th>Image</th>
+                <th>Name</th>
                 <th>Order</th>
                 <th></th>
             </tr>
@@ -107,7 +108,9 @@
                                 {{ Form::file('images['. $key .'][file]' ,array('id' => '', 'class' => 'img-input')) }}
                             </div>
                         </td>
-
+                        <td>
+                            {{ $image['name'] }}
+                        </td>
                         <td>
                             {{ Form::number('images['. $key .'][order]', (empty($image['pivot']['order']) ? 0 : $image['pivot']['order']), array('class' => 'form-control') ) }}
                         </td>
@@ -117,7 +120,6 @@
                             <button class="btn btn-danger btn-img-product-form" type="button" onclick="$(this).closest('tr').remove();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
                         </td>
                     </tr>
-
                 @endforeach
             @endif
 
