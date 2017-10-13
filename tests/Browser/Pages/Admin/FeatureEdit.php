@@ -44,14 +44,14 @@ class FeatureEdit extends BasePage
     public function elements()
     {
         return [
-            '@title' => 'description[title]',
-            '@description' => 'description[description]',
-            '@type' => 'properties[type]',
-            '@status' => 'properties[status]',
-            '@prefix' => 'description[prefix]',
-            '@suffix' => 'description[suffix]',
-            '@categories' => 'categories[]',
-            '@variant' => 'values[0][value]',
+            '@title' => 'input[name="description[title]"]',
+            '@description' => 'textarea[name="description[description]"]',
+            '@type' => 'select[name="properties[type]"]',
+            '@status' => 'select[name="properties[status]"]',
+            '@prefix' => 'input[name="description[prefix]"]',
+            '@suffix' => 'input[name="description[suffix]"]',
+            '@categories' => 'select[name="categories[]"]',
+            '@variant' => 'input[name$="[value]"]',
             '@deleteVariant' => '#delete-variant',
             '@addVariant' => '#add-variant',
             '@submit' => '#submit',
