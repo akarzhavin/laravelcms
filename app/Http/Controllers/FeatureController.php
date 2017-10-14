@@ -119,7 +119,7 @@ class FeatureController extends Controller
      */
     public function destroy(int $id)
     {
-        Feature::findOrfail($id)->delete();
+        Feature::findOrfail($id)->forceDelete();
         return redirect('admin/feature');
     }
 

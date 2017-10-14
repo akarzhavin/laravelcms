@@ -23,8 +23,7 @@ use Illuminate\Support\Facades\Validator;
 class FeatureValueShell
 {
     private $model;
-
-    public $type;
+    private $type;
 
     public function __construct($model = null, $type = null)
     {
@@ -32,7 +31,7 @@ class FeatureValueShell
         $this->type = isset($type) ? $type : null;
     }
 
-    //Set value
+    //Set the value in model
     private function setValue($value)
     {
         $type = $this->getType();
@@ -61,6 +60,7 @@ class FeatureValueShell
         return $this;
     }
 
+    //Get value from model
     private function getValue()
     {
         $model = $this->getModel();
@@ -76,6 +76,7 @@ class FeatureValueShell
             return $model->value_double;
         }
     }
+
     //Call model function
     public function __call(string $name , array $arguments)
     {
@@ -126,6 +127,10 @@ class FeatureValueShell
             return $this->getValue();
         }
 
+        if($name == 'type'){
+            return $this->getType();
+        }
+
         return $this->getModel()->$name;
     }
 
@@ -133,6 +138,11 @@ class FeatureValueShell
     {
         if($name == 'value'){
             $this->setValue($value);
+            return $this;
+        }
+
+        if($name == 'type'){
+            $this->setType($value);
             return $this;
         }
 

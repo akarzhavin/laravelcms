@@ -60,22 +60,22 @@ class AdminFeatureTest extends DuskTestCase
         $this->checkFeatureData($page);
     }
 
-//    public function testFeatureDelete()
-//    {
-//        $page = new ProductEdit(Product::orderBy('id', 'desc')->first());
-//        $this->browse(function (Browser $browser) use ($page) {
-//            $browser->visit($page);
-//            $browser->script('window.scrollTo(0, 0);');
-//            $browser->press('@destroy');
-//            $browser->waitForText('Имя');
-//        });
-//
-//        $object = App::make('TestDataClass');
-//        $this->assertDatabaseMissing('category_description', [
-//            'title' => $object->get('@title')
-//        ]);
-//        $object->fresh();
-//    }
+    public function testFeatureDelete()
+    {
+        $page = new FeatureEdit(Feature::orderBy('id', 'desc')->first());
+        $this->browse(function (Browser $browser) use ($page) {
+            $browser->visit($page);
+            $browser->script('window.scrollTo(0, 0);');
+            $browser->press('@destroy');
+            $browser->waitForText('Имя');
+        });
+
+        $object = App::make('TestDataClass');
+        $this->assertDatabaseMissing('feature_description', [
+            'title' => $object->get('@title')
+        ]);
+        $object->fresh();
+    }
 
     private function setProps()
     {
@@ -182,10 +182,10 @@ class AdminFeatureTest extends DuskTestCase
 
         $variants = $browser;
 
-        $variants->assertInputValue('@variant' ,$object->get('variant0'));
-        $variants->assertInputValue('@variant' ,$object->get('variant1'));
-        $variants->assertInputValue('@variant' ,$object->get('variant2'));
-        $variants->assertInputValue('@variant' ,$object->get('variant3'));
-        $variants->assertInputValue('@variant' ,$object->get('variant4'));
+        $variants->assertSourceHas($object->get('variant0'));
+        $variants->assertSourceHas($object->get('variant1'));
+        $variants->assertSourceHas($object->get('variant2'));
+        $variants->assertSourceHas($object->get('variant3'));
+        $variants->assertSourceHas($object->get('variant4'));
     }
 }
