@@ -71,22 +71,6 @@ class FeatureValue extends Model
      */
     protected $dates = [];
 
-    //TODO delete this method and used FeatureValueShell class
-    public function getValueAttribute()
-    {
-        if(!is_null($this->value_bool)){
-            return $this->value_bool;
-        }
-
-        if(!is_null($this->value_string)){
-            return $this->value_string;
-        }
-
-        if(!is_null($this->value_double)){
-            return $this->value_double;
-        }
-    }
-
     public function setValueBoolAttribute($value)
     {
         $value = (bool) $value;

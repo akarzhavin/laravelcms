@@ -27,10 +27,15 @@ class FeatureValueShell
 
     public function __construct($model = null, $type = null)
     {
-        $this->model = isset($model) ? $model : new FeatureValue();
-        $this->type = isset($type) ? $type : null;
+        $this->init($model, $type);
     }
 
+    public function init($model = null, $type = null)
+    {
+        $this->model = isset($model) ? $model : new FeatureValue();
+        $this->type = isset($type) ? $type : null;
+        return $this;
+    }
     //Set the value in model
     private function setValue($value)
     {
@@ -75,6 +80,8 @@ class FeatureValueShell
         if(!is_null($model->value_double)){
             return $model->value_double;
         }
+
+        return null;
     }
 
     //Call model function

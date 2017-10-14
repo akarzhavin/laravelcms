@@ -68,7 +68,7 @@
     @if(!empty($values))
     @foreach($values as $i => $item)
         <tr>
-            <td>{{ Form::text('values['. $i .'][value]', empty($item->value) ?'': $item->value, array('class' => 'form-control quantityVariable')) }}</td>
+            <td>{{ Form::text('values['. $i .'][value]', FeatureValueShell::init($item)->value, array('class' => 'form-control quantityVariable')) }}</td>
             <td>
                 {{ Form::hidden('values['. $i .'][id]', $item->id ) }}
                 <button id="delete-variant" class="btn btn-danger" type="button" onclick="$(this).closest('tr').remove();"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
