@@ -3,6 +3,7 @@
 namespace Tests\Browser;
 
 use Tests\Browser\Pages\Admin\FeatureAdd;
+use Tests\Browser\Pages\Admin\FeatureEdit;
 use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Support\Facades\App;
@@ -46,19 +47,19 @@ class AdminFeatureTest extends DuskTestCase
         $page = new FeatureEdit(Feature::orderBy('id', 'desc')->first());
         $this->checkFeatureData($page);
     }
-//
-//    public function testFeatureUpdate()
-//    {
-//        $page = new ProductEdit(Product::orderBy('id', 'desc')->first());
-//        $this->passFeatureData($page);
-//    }
-//
-//    public function testFeatureData2()
-//    {
-//        $page = new ProductEdit(Product::orderBy('id', 'desc')->first());
-//        $this->checkProductData($page);
-//    }
-//
+
+    public function testFeatureUpdate()
+    {
+        $page = new FeatureEdit(Feature::orderBy('id', 'desc')->first());
+        $this->passFeatureData($page);
+    }
+
+    public function testFeatureData2()
+    {
+        $page = new FeatureEdit(Feature::orderBy('id', 'desc')->first());
+        $this->checkFeatureData($page);
+    }
+
 //    public function testFeatureDelete()
 //    {
 //        $page = new ProductEdit(Product::orderBy('id', 'desc')->first());
@@ -173,5 +174,18 @@ class AdminFeatureTest extends DuskTestCase
         $general->assertInputValue('@suffix', $object->get('@suffix'));
         $general->assertSelectHasOption('@status', $object->get('@status'));
         $general->assertSelectHasOption('@categories', $object->get('category')->id);
+    }
+
+    private function checkVariants($browser)
+    {
+        $object = App::make('TestDataClass');
+
+        $variants = $browser;
+
+        $variants->assertInputValue('@variant' ,$object->get('variant0'));
+        $variants->assertInputValue('@variant' ,$object->get('variant1'));
+        $variants->assertInputValue('@variant' ,$object->get('variant2'));
+        $variants->assertInputValue('@variant' ,$object->get('variant3'));
+        $variants->assertInputValue('@variant' ,$object->get('variant4'));
     }
 }
