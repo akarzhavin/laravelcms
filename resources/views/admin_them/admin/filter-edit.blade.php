@@ -14,7 +14,7 @@
                         'method'=>"DELETE")
                         ) }}
             {{--{{ Form::submit('Destroy!') }}--}}
-            <button class="btn btn-danger ui-btn-delete" type="submit">Удалить</button>
+                <button id="destroy" class="btn btn-danger ui-btn-delete" type="submit">Удалить</button>
             {{ Form::close() }}
 
 
@@ -26,10 +26,8 @@
                         'files' => true)
                         ) }}
 
-            {{--{{Form::submit('Submit', array('class' => 'btn btn-primary'))}}--}}
-
             <div class="ui-btn-save-div">
-                <button class="btn btn-primary ui-btn-save" type="submit">Сохранить</button>
+                <button id="submit" class="btn btn-primary ui-btn-save" type="submit">Сохранить</button>
             </div>
 
             @include('admin-partials._filter-form',array('productButton'=>'Edit Product'))

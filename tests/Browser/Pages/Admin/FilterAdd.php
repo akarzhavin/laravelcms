@@ -36,7 +36,14 @@ class FilterAdd extends BasePage
     public function elements()
     {
         return [
-            '@element' => '#selector',
+            '@status' => 'select[name="properties[status]"]',
+            '@display' => 'select[name="properties[display]"]',
+            '@displayCount' => 'input[name="properties[display_count]"]',
+            '@title' => 'input[name="properties[title]"]',
+            '@type' => 'select[name="properties[type]"]',
+            '@feature' => 'select[name="properties[feature_id]"]',
+            '@categories' => 'select[name="categories[]"]',
+            '@submit' => '#submit'
         ];
     }
 }

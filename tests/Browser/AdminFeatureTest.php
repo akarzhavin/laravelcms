@@ -26,17 +26,6 @@ class AdminFeatureTest extends DuskTestCase
         });
     }
 
-//    public function testFeaturesList()
-//    {
-//        $this->browse(function (Browser $browser) {
-//            $browser->visit('/admin')
-//                ->assertSee('Категории')
-//                ->clickLink('Характеристики')
-//                ->assertSee('Имя')
-//                ->assertSee('Редактировать');
-//        });
-//    }
-
     public function testFeatureCreate()
     {
         $this->passFeatureData(new FeatureAdd);
