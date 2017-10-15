@@ -31,6 +31,6 @@ class CreateCategoryDescriptionTable extends Migration
      */
     public function down()
     {
-        Schema::drop('category_description');
+        Schema::dropIfExists('category_description');
     }
 }

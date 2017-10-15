@@ -100,7 +100,7 @@ class Product extends Model
 
     public function images()
     {
-        return $this->belongsToMany('App\Http\Models\Images', 'product_images', 'product_id', 'image_id')->withPivot('order', 'main');
+        return $this->morphToMany('App\Http\Models\Images', 'model', 'images_morph', 'model_id', 'image_id')->withPivot('main', 'order');
     }
 
     public function prices()
