@@ -39,6 +39,7 @@ class FilterAdd extends BasePage
             '@status' => 'select[name="properties[status]"]',
             '@display' => 'select[name="properties[display]"]',
             '@displayCount' => 'input[name="properties[display_count]"]',
+            '@roundTo' => 'input[name="properties[other][round_to]"]',
             '@title' => 'input[name="properties[title]"]',
             '@type' => 'select[name="properties[type]"]',
             '@feature' => 'select[name="properties[feature_id]"]',

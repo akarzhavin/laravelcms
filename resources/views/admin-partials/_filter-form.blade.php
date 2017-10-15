@@ -30,10 +30,10 @@
     {{ Form::select('properties[feature_id]', $features, empty($filter->feature_id) ?'': $filter->feature_id, array('class' => 'form-control')) }}
 </div>
 
-{{--<div class="form-group">--}}
-    {{--{{ Form::label('properties[other][round_to]','Шаг') }}--}}
-    {{--{{ Form::number('properties[other][round_to]', empty($filter->other['round_to']) ?'': $filter->other['round_to'], array('class' => 'form-control')) }}--}}
-{{--</div>--}}
+<div class="form-group">
+    {{ Form::label('properties[other][round_to]','Шаг') }}
+    {{ Form::number('properties[other][round_to]', empty($filter->other['round_to']) ? 1 : $filter->other['round_to'], array('class' => 'form-control')) }}
+</div>
 
 <h4>Выбор категории</h4>
 

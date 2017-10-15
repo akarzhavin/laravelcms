@@ -40,12 +40,14 @@
                         <h4><a href="/catalog/{{ $product->categories->first()->id_path }}/product/{{ $product->id }}">
                                 {{ $product->description->title }}</a></h4>
                         <div class="price">
-                            <div class="RecommendedPrice">
-                                Рекомендуемая цена: <span class="cost">{{ $product->prices->first()->price }}</span>
-                            </div>
+                            @if(!empty($product->prices->first()))
+                                <div class="RecommendedPrice">
+                                    Рекомендуемая цена: <span class="cost">{{ $product->prices->first()->price }}</span>
+                                </div>
                                 <div class="PriceHover">
                                 <span class="cost">{{ $product->prices->first()->price }}</span>
                                 <span class="price-tax">{{ $product->prices->first()->price }}</span>
+                            @endif
                             </div>
                         </div>
                     </div>
