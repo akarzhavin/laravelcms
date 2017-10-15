@@ -12,7 +12,7 @@
 
             {{ Form::open( array('action' => "FeatureController@store")) }}
             <div class="ui-btn-save-div">
-                {{Form::submit('Сохранить', array('class' => 'btn btn-primary ui-btn-save'))}}
+                <button id="submit" class="btn btn-primary ui-btn-save" type="submit">Сохранить</button>
             </div>
             @include('admin-partials._feature-form',array("button_name" => "Add"))
             {{ Form::close() }}

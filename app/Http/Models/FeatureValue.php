@@ -2,6 +2,7 @@
 
 namespace App\Http\Models;
 
+use App\Exceptions\SystemExceptions;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -48,7 +49,7 @@ class FeatureValue extends Model
      * @var array
      */
     protected $guarded = ['value_bool', 'value_string', 'value_double'];
-
+    
     /**
      * Indicates if the model should be timestamped.
      *
@@ -70,18 +71,40 @@ class FeatureValue extends Model
      */
     protected $dates = [];
 
-    public function getValueAttribute()
+    public function setValueBoolAttribute($value)
     {
-        if(!is_null($this->value_bool)){
-            return $this->value_bool;
-        }
+        $value = (bool) $value;
+        if(!is_bool($value)){ $this->invalidTypeExeption(); }
+        $this->attributes['value_bool'] = $value;
+    }
 
-        if(!is_null($this->value_string)){
-            return $this->value_string;
-        }
+    public function setValueStringAttribute($value)
+    {
+        $value = (string) $value;
+        if(!is_string($value)){ $this->invalidTypeExeption(); }
+        $this->attributes['value_string'] = $value;
+    }
 
-        if(!is_null($this->value_double)){
-            return $this->value_double;
+    public function setValueDoubleAttribute($value)
+    {
+        $value = (double) $value;
+        if(!is_double($value)){ $this->invalidTypeExeption(); }
+        $this->attributes['value_double'] = $value;
+    }
+
+    public function setOrderAttribute($value)
+    {
+        if(!empty($value)){
+            $this->attributes['order'] = $value;
+        } else {
+            $this->attributes['order'] = 0;
+        }
+    }
+
+    public function setDescripitonAttribute($value)
+    {
+        if(!empty($value)){
+            $this->attributes['description'] = $value;
         }
     }
 
@@ -92,6 +115,12 @@ class FeatureValue extends Model
 
     public function feature()
     {
-        return $this->belongsTo('App\Http\Models\Feature');
+        return $this->belongsTo('App\Http\Models\Feature', 'feature_id');
     }
+
+    private function invalidTypeExeption()
+    {
+        throw new SystemExceptions('Invalid $value type');
+    }
+
 }

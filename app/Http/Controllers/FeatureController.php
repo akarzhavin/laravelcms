@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Models\FeatureValueShell;
 use App\Http\Requests\FeatureRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -100,6 +101,7 @@ class FeatureController extends Controller
 
         //Update Variants
         $this->deleteValues($request);
+        $this->updateValues($request);
         $this->saveValues($request);
 
         //Update categories
@@ -117,7 +119,7 @@ class FeatureController extends Controller
      */
     public function destroy(int $id)
     {
-        Feature::findOrfail($id)->delete();
+        Feature::findOrfail($id)->forceDelete();
         return redirect('admin/feature');
     }
 
@@ -146,6 +148,27 @@ class FeatureController extends Controller
         }
     }
 
+    private function updateValues(Request $request)
+    {
+        $model = App::make('feature-model');
+
+        foreach($model->values as $existingValue){
+            //Search request value by id
+            $requestKey = array_search($existingValue->id, array_column($request->values, 'id'));
+            if(
+                $requestKey !== false &&
+                isset($request->values[$requestKey]['value'])
+            ){
+                $requestValue = $request->values[$requestKey]['value'];
+
+                //Set request value
+                $shell = new FeatureValueShell($existingValue, $model->type);
+                $shell->value = $requestValue;
+                $shell->save();
+            }
+        }
+    }
+
     private function saveValues(Request $request)
     {
         //assembling new variants
@@ -159,13 +182,15 @@ class FeatureController extends Controller
         //Save
         if(count($listNewVariants)){
             $feature = App::make('feature-model');
-            $collection = new FeatureValuesCollection();
             foreach($listNewVariants as $item){
-                isset($item['order']) ?: $item['order'] = 0;
-                isset($item['description']) ?: $item['description'] = null;
-                $collection->addItem($feature->id, $feature->type, $item['value'], $item['order'], $item['description']);
+                $shell = new FeatureValueShell();
+                $shell->feature_id = $feature->id;
+                $shell->type = $feature->type;
+                $shell->value = $item['value'];
+                empty($item['order']) ?: $shell->order = $item['order'];
+                empty($item['description']) ?: $shell->description = $item['description'];
+                $shell->save();
             }
-            $collection->save();
         }
     }
 

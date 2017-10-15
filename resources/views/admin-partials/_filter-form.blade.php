@@ -9,7 +9,7 @@
 </div>
 <div class="form-group">
     {{ Form::label('properties[display_count]','Кол-во отображаемых вариантов фильтра') }}
-    {{ Form::number('properties[display_count]', empty($filter->display_count) ?'D': $filter->display_count, array('class' => 'form-control')) }}
+    {{ Form::number('properties[display_count]', empty($filter->display_count) ?'10': $filter->display_count, array('class' => 'form-control')) }}
 </div>
 <div class="form-group">
     {{Form::label('properties[title]','Заголовок')}}

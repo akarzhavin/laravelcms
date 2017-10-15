@@ -11,7 +11,7 @@
                 array('class'=>'custom-control-input')
             );
             echo "<span class='custom-control-indicator'></span>";
-            echo Form::label('feature_values['. $key .'][values_id][]', $value->value, array('class'=>'custom-control-description'));
+            echo Form::label('feature_values['. $key .'][values_id][]', FeatureValueShell::init($value)->value, array('class'=>'custom-control-description'));
             echo "</label></div>";
         }
         ?>

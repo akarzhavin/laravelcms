@@ -8,16 +8,11 @@
 Route::get('/test', function () {
 
     $testData = App::make('TestDataClass');
-//    $parentCategory = \App\Http\Models\Category::orderByRaw('RAND()')->first();
-//    $testData->set('parentCategory', $parentCategory);
-//    $testData->faker('@title')->firstName;
-//    $testData->faker('@description')->text;
-//    $testData->faker('@meta_keywords')->sentence;
-//    $testData->faker('@meta_description')->sentence;
-//    $testData->faker('@page_title')->word;
-    $testData->refresh();
-
-    return var_dump($testData);
+    $a = new \App\Http\Models\FeatureValueShell();
+    $a->find(35);
+    $a->value = '123.123';
+    $a->getModel();
+    $b = null;
 });
 
 Route::post('/test', function (Request $request) {

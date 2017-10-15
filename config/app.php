@@ -225,7 +225,10 @@ return [
         'Socialite'  => Laravel\Socialite\Facades\Socialite::class,
 //        'Telegram'   => Telegram\Bot\Laravel\Facades\Telegram::class,
         'GeoIP'      => \Torann\GeoIP\Facades\GeoIP::class,
-        'Images'     => App\Facades\Images::class
+        'Images'     => App\Facades\Images::class,
+
+        //CMS aliases
+        'FeatureValueShell'     => App\Facades\FeatureValueShell::class
     ],
 
 ];

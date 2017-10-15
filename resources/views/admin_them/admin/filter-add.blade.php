@@ -10,7 +10,7 @@
 
             {{ Form::open( array('action' => "FilterController@store")) }}
             <div class="ui-btn-save-div">
-                {{Form::submit('Сохранить', array('class' => 'btn btn-primary ui-btn-save'))}}
+                <button id="submit" class="btn btn-primary ui-btn-save" type="submit">Сохранить</button>
             </div>
             @include('admin-partials._filter-form',array('productButton'=>'Add filter'))
             {{ Form::close() }}

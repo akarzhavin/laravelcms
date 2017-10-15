@@ -45,6 +45,11 @@ class AppServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            'featureValueShell',
+            \App\Http\Models\FeatureValueShell::class
+        );
+
+        $this->app->bind(
             \App\Http\Controllers\PathManager\PathManagerInterface::class,
             \App\Http\Controllers\PathManager\PathManager::class
         );
