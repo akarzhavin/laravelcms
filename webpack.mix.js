@@ -18,16 +18,6 @@ mix.browserSync('verdimar.laravel.cms');
 
 mix.copyDirectory(['node_modules/bootstrap/dist/'], 'public/vendor/bootstrap');
 mix.copyDirectory(['node_modules/font-awesome/'], 'public/vendor/font-awesome');
-// mix.copyDirectory(['node_modules/admin-lte/bootstrap'], 'public/vendor/admin-lte/bootstrap');
-// mix.copyDirectory(['node_modules/admin-lte/dist'], 'public/vendor/admin-lte/dist');
-// mix.copyDirectory(['node_modules/admin-lte/plugins'], 'public/vendor/admin-lte/plugins');
-//mix.copy(['node_modules/jquery/dist/jquery.js', 'node_modules/jquery/dist/jquery.min.js'], 'public/vendor/jquery');
-//mix.copy(['node_modules/animate.css/animate.css', 'node_modules/animate.css/animate.min.css'], 'public/vendor/animate-css');
-// ??? mix.copy(['node_modules/@zeitiger/elevatezoom/jquery.*.js'], 'public/vendor/elevatezoom');
-//mix.copy(['node_modules/device.js/dist/*'], 'public/vendor/device-js');
-//mix.copy(['node_modules/flexslider/*.css', 'node_modules/flexslider/*.js'], 'public/vendor/flexslider');
-//mix.copy(['node_modules/jquery-plugin-viewport-checker/dist/*'], 'public/vendor/viewport-checker');
-//mix.copy(['node_modules/jquery.stellar/jquery.stellar.js'], 'public/vendor/jquery-stellar');
 
 mix.styles([
     'node_modules/animate.css/animate.min.css',

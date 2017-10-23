@@ -18,7 +18,7 @@ class FilterController extends Controller
      */
     public function index()
     {
-        $filters = Filter::paginate(15);
+        $filters = Filter::withTrashed()->paginate(15);
         return view('admin_them.admin.filters-list', compact('filters'));
     }
 
@@ -50,6 +50,14 @@ class FilterController extends Controller
         $this->validateValue($properties);
         $filter->fill($properties);
         $filter->save();
+
+        if(
+            isset($properties['status']) &&
+            $properties['status'] == 'D'
+        ) {
+            $filter->delete();
+        }
+
 
         $filter->categories()->attach($request->filter('categories'));
 
@@ -103,6 +111,13 @@ class FilterController extends Controller
         $filter->fill($properties);
         $filter->save();
 
+        if(
+            isset($properties['status']) &&
+            $properties['status'] == 'D'
+        ) {
+            $filter->delete();
+        }
+
         return redirect('admin/filter');
     }
 
@@ -116,7 +131,7 @@ class FilterController extends Controller
     {
         $filter = Filter::with('categories')->findOrFail($id);
         $filter->categories()->detach();
-        $filter->delete();
+        $filter->forceDelete();
 
         return redirect('admin/filter');
     }
