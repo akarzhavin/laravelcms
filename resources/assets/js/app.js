@@ -7,6 +7,10 @@ import 'element-ui/lib/theme-default/index.css';
 
 Vue.use(ElementUI);
  //Vue.use(VueRouter)
+import  'vue-wysiwyg/dist/vueWysiwyg.css';
+import Wysiwyg from 'vue-wysiwyg/dist/vueWysiwyg.js';
+
+Vue.use(Wysiwyg, {}); 
 
 new Vue ({
     el: '#app',

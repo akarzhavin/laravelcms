@@ -1,12 +1,14 @@
 <div class="form-group">
-    {{Form::label('title','Заголовок')}}
+    <label for="title">Заголовок</label>
     {{Form::text('title', empty($category->description->title) ?'': $category->description->title, array('class' => 'form-control'))}}
 
     {{Form::label('description','Описание')}}
     {{Form::textarea('description', empty($category->description->description) ?'': $category->description->description, array('class' => 'form-control'))}}
+    <Wysiwyg />
 </div>
 
 <div class="form-group">
+    
     {{ Form::label('status','Статус') }}
     {{ Form::select('status', ['A' => 'Включено', 'H' => 'Скрыто', 'D' => 'Выключено'], empty($category->status) ?'': $category->status, array('class' => 'form-control')) }}
 
