@@ -5,7 +5,7 @@ namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Http\Models\Roles
+ * App\Http\Models\Role
  *
  * @property int $id
  * @property string $status
@@ -13,15 +13,15 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property \Carbon\Carbon|null $deleted_at
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Roles whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Roles whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Roles whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Roles whereStatus($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Roles whereType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Roles whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Role whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Role whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Role whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Role whereStatus($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Role whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\Role whereUpdatedAt($value)
  * @mixin \Eloquent
  */
-class Roles extends Model
+class Role extends Model
 {
     /**
      * The database table used by the model.

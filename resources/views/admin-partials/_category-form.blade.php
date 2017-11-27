@@ -4,7 +4,7 @@
 
     {{Form::label('description','Описание')}}
     {{Form::textarea('description', empty($category->description->description) ?'': $category->description->description, array('class' => 'form-control'))}}
-    <Wysiwyg />
+    {{--<Wysiwyg />--}}
 </div>
 
 <div class="form-group">

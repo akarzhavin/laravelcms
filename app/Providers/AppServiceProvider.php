@@ -25,6 +25,7 @@ class AppServiceProvider extends ServiceProvider
             'Product' => 'App\Http\Models\Product',
             'Feature' => 'App\Http\Models\Feature',
             'Filter' => 'App\Http\Models\Filter',
+            'Gallery' => 'App\Http\Models\Gallery',
         ]);
     }
 

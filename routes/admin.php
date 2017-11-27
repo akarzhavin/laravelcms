@@ -15,3 +15,4 @@ Route::match(array('PUT', 'PATCH'), "/products/{product}/edit", array(
 
 Route::resource('feature', 'FeatureController', ['except' => ['show']]);
 Route::resource('filter', 'FilterController', ['except' => ['show']]);
+Route::resource('gallery', 'GalleryController', ['except' => ['show']]);

@@ -27,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call('FeatureValuesSeeder');
         $this->call('ProductFeaturePivotSeeder');
         $this->call('FilterSeeder');
+        $this->call('GallerySeeder');
     }
 }

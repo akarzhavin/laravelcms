@@ -136,5 +136,11 @@
                 <span slot="title">Фильтры</span>
             </el-menu-item>
         </a>
+        <a href="/admin/gallery" style="text-decoration: none">
+            <el-menu-item index="4">
+                <i class="el-icon-setting"></i>
+                <span slot="title">Галлереи</span>
+            </el-menu-item>
+        </a>
         </el-menu>
     </div>

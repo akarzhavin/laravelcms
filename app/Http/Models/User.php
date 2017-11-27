@@ -18,7 +18,7 @@ use Laravel\Cashier\Billable;
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $deleted_at
- * @property-read \App\Http\Models\Roles $role
+ * @property-read \App\Http\Models\Role $role
  * @property-read \Illuminate\Database\Eloquent\Collection|\Laravel\Cashier\Subscription[] $subscriptions
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\User whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Http\Models\User whereDeletedAt($value)
@@ -52,6 +52,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -63,6 +64,6 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo('App\Http\Models\Roles', 'role_id');
+        return $this->belongsTo('App\Http\Models\Role', 'role_id');
     }
 }

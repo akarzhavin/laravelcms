@@ -18,7 +18,7 @@ class RolesSeeder extends Seeder
         ];
 
         foreach($roles as $role){
-            App\Http\Models\Roles::create(['type' => $role]);
+            App\Http\Models\Role::create(['type' => $role]);
         }
     }
 }
