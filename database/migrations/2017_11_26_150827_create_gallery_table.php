@@ -17,6 +17,7 @@ class CreateGalleryTable extends Migration
             $table->increments('id');
             $table->string('title', 255);
             $table->string('description', 255)->nullable();
+            $table->char('status', 1)->default('A');
             $table->boolean('hard')->default(false);
             $table->softDeletes();
             $table->timestamps();

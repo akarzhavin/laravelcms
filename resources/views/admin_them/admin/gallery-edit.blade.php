@@ -9,7 +9,7 @@
 
             @include('admin-partials._form-error')
 
-            <form method="POST" action="/admin/gallery/{{ $gallery->id }}" accept-charset="UTF-8">
+            <form method="POST" action="/admin/gallery/{{ $gallery->id }}" accept-charset="UTF-8" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field('PUT') }}
 
@@ -17,13 +17,8 @@
                     {{Form::submit('Сохранить', array('class' => 'btn btn-primary ui-btn-save'))}}
                 </div>
 
-                <div class="form-group">
-                    <label for="title">Заголовок</label>
-                    {{Form::text('properties[title]', empty($gallery->title) ?'': $gallery->title, array('class' => 'form-control'))}}
+                @include('admin-partials._gallery-form')
 
-                    {{Form::label('properties[description]','Описание')}}
-                    {{Form::textarea('properties[description]', empty($gallery->description) ?'': $gallery->description, array('class' => 'form-control'))}}
-                </div>
             </form>
 
         </el-col>

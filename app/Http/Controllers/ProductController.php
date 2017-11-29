@@ -258,7 +258,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Delete images in ProductImages table
+     * Delete images
      *
      * @param ProductRequest $request
      * @return bool|null

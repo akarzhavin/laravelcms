@@ -28,6 +28,12 @@ class GalleryRequest extends Request
         return [
             'properties.title' => "required|max:255",
             'properties.description' => "max:255",
+
+            //Images
+            'images_main' => 'integer',
+            'images.*.id' => 'integer',
+            'images.*.order' => 'integer',
+            'images.*.file' => 'image',
         ];
     }
 }
