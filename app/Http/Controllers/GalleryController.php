@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Models\Category;
 use App\Http\Models\Gallery;
-//use App\Http\Models\Images;
 use App\Facades\Images;
 use App\Http\Requests\GalleryRequest;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class GalleryController extends Controller
@@ -43,6 +40,10 @@ class GalleryController extends Controller
     {
         $data = $request->filter();
         $gallery = Gallery::create($data['properties']);
+        App::instance('gallery-model', $gallery);
+
+        //Update product images
+        $this->updateImages($request);
 
         $request->session()->flash('alert-success', 'Feature has been added!');
         return redirect('admin/gallery');

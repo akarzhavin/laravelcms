@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 class GalleryRequest extends Request
 {
     protected $filterKeys = [
+        'properties.status',
         'properties.title',
         'properties.description',
     ];
@@ -26,6 +27,7 @@ class GalleryRequest extends Request
     public function rules()
     {
         return [
+            'properties.status' => "required|in:0,1",
             'properties.title' => "required|max:255",
             'properties.description' => "max:255",
 
