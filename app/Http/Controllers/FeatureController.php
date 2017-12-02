@@ -22,7 +22,9 @@ class FeatureController extends Controller
     public function index()
     {
         $features = Feature::paginate(15);
-        return view('admin_them.admin.features', compact('features'));
+
+        $data['features'] = $features;
+        return response()->json($data);
     }
 
     /**
@@ -33,7 +35,7 @@ class FeatureController extends Controller
     public function create()
     {
         $data['categoryTree'] = Category::tree();
-        return view('admin_them.admin.features-add', $data);
+        return response()->json($data);
     }
 
     /**
@@ -55,8 +57,7 @@ class FeatureController extends Controller
         //Update categories
         $this->syncCategories($data['categories']);
 
-        $request->session()->flash('alert-success', 'Feature has been added!');
-        return redirect('admin/feature');
+        return response()->json(['status' => 'successful']);
     }
 
     /**
@@ -75,8 +76,7 @@ class FeatureController extends Controller
         $data['categoryTree'] = Category::tree();
         $data['productCategories'] = $feature->categories->pluck('id')->toArray();
 
-        return view('admin_them.admin.features-edit', $data);
-
+        return response()->json($data);
     }
 
     /**
@@ -107,8 +107,7 @@ class FeatureController extends Controller
         //Update categories
         $this->syncCategories($data['categories']);
 
-        $request->session()->flash('alert-success', 'Feature has been updated!');
-        return redirect('admin/feature');
+        return response()->json(['status' => 'successful']);
     }
 
     /**
@@ -120,7 +119,7 @@ class FeatureController extends Controller
     public function destroy(int $id)
     {
         Feature::findOrfail($id)->forceDelete();
-        return redirect('admin/feature');
+        return response()->json(['status' => 'successful']);
     }
 
     private function deleteValues(FeatureRequest $request)
