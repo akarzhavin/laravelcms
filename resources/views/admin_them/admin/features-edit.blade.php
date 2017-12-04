@@ -3,6 +3,7 @@
 @include('admin_them.navbar')
 
 <div class="wrapcontainer" :class="marContain">
+    <features-edit></features-edit>
     <el-row>
         <el-col :span="24">
 
